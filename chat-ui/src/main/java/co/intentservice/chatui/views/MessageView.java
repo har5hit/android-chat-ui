@@ -46,6 +46,7 @@ public abstract class MessageView extends FrameLayout {
      */
     public abstract void setElevation(float elevation);
 
+    public abstract void setStatus(String message);
 
     /**
      * Method to set the message's sender name.

@@ -86,8 +86,16 @@ public class ItemSentView extends MessageView {
 
     }
 
+    @Override
+    public void setStatus(String message) {
+
+        TextView status = findViewById(R.id.tv_sent);
+        status.setText(message);
+    }
+
     /**
      * Constructs a new message view.
+     *
      * @param context
      */
     public ItemSentView(Context context) {

@@ -40,8 +40,6 @@ public class ItemRecvView extends MessageView {
 
     public void setStatus(String message) {
 
-        TextView status = findViewById(R.id.tv_sent);
-        status.setText(message);
     }
 
     /**
