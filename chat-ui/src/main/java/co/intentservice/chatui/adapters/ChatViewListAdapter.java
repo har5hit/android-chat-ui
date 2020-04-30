@@ -94,6 +94,7 @@ public class ChatViewListAdapter extends BaseAdapter {
 
         holder.setMessage(chatMessages.get(position).getMessage());
         holder.setTimestamp(chatMessages.get(position).getFormattedTime());
+        holder.setStatus(chatMessages.get(position).getStatus());
         holder.setElevation(bubbleElevation);
         holder.setBackground(type);
         String sender = chatMessages.get(position).getSender();
@@ -105,8 +106,20 @@ public class ChatViewListAdapter extends BaseAdapter {
     }
 
     public void addMessage(ChatMessage message) {
-        chatMessages.add(message);
+        if (doesntAlreadyExist(message)) {
+            chatMessages.add(message);
+        }
         notifyDataSetChanged();
+    }
+
+    private boolean doesntAlreadyExist(ChatMessage message) {
+        for (ChatMessage chatMessage : chatMessages) {
+            if (chatMessage.getTimestamp() == message.getTimestamp()) {
+                chatMessage.setStatus(message.getStatus());
+                return false;
+            }
+        }
+        return true;
     }
 
     public void addMessages(ArrayList<ChatMessage> chatMessages) {

@@ -1,12 +1,12 @@
 package co.intentservice.chatui.views;
 
 import android.content.Context;
-import android.support.annotation.ColorInt;
-import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.cardview.widget.CardView;
 
 import co.intentservice.chatui.R;
 
@@ -29,7 +29,7 @@ public class ItemRecvView extends MessageView {
 
         if (messageTextView == null) {
 
-            messageTextView = (TextView) findViewById(R.id.message_text_view);
+            messageTextView = findViewById(R.id.message_text_view);
 
         }
 
@@ -38,15 +38,22 @@ public class ItemRecvView extends MessageView {
 
     }
 
+    public void setStatus(String message) {
+
+        TextView status = findViewById(R.id.tv_sent);
+        status.setText(message);
+    }
+
     /**
      * Method to set the timestamp that the message was received or sent on the screen.
+     *
      * @param timestamp The timestamp that you want to be displayed.
      */
     public void setTimestamp(String timestamp) {
 
         if (timestampTextView == null) {
 
-            timestampTextView = (TextView) findViewById(R.id.timestamp_text_view);
+            timestampTextView = findViewById(R.id.timestamp_text_view);
 
         }
 
@@ -62,7 +69,7 @@ public class ItemRecvView extends MessageView {
 
         if (bubble == null) {
 
-            this.bubble = (CardView) findViewById(R.id.bubble);
+            this.bubble = findViewById(R.id.bubble);
 
         }
 
@@ -78,7 +85,7 @@ public class ItemRecvView extends MessageView {
 
         if (bubble == null) {
 
-            this.bubble = (CardView) findViewById(R.id.bubble);
+            this.bubble = findViewById(R.id.bubble);
 
         }
 
@@ -121,9 +128,9 @@ public class ItemRecvView extends MessageView {
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.chat_item_rcv, this);
 
-        this.bubble = (CardView) findViewById(R.id.bubble);
-        this.messageTextView = (TextView) findViewById(R.id.message_text_view);
-        this.timestampTextView = (TextView) findViewById(R.id.timestamp_text_view);
+        this.bubble = findViewById(R.id.bubble);
+        this.messageTextView = findViewById(R.id.message_text_view);
+        this.timestampTextView = findViewById(R.id.timestamp_text_view);
 
     }
 

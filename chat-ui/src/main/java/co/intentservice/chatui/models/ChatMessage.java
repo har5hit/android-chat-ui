@@ -14,16 +14,35 @@ public class ChatMessage {
     private long timestamp;
     private Type type;
     private String sender;
+    private Status status;
 
     public ChatMessage(String message, long timestamp, Type type) {
         this.message = message;
         this.timestamp = timestamp;
         this.type = type;
+        status = Status.SENT;
     }
 
     public ChatMessage(String message, long timestamp, Type type, String sender) {
         this(message, timestamp, type);
         this.sender = sender;
+        status = Status.SENT;
+    }
+
+    public ChatMessage(String message, long timestamp, Type type, String sender, Status status) {
+        this.message = message;
+        this.timestamp = timestamp;
+        this.type = type;
+        this.sender = sender;
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public long getTimestamp() {
@@ -72,5 +91,9 @@ public class ChatMessage {
 
     public enum Type {
         SENT, RECEIVED
+    }
+
+    public enum Status {
+        WAITING, SENT, DELIVERED, READ
     }
 }

@@ -1,10 +1,12 @@
 package co.intentservice.chatui.viewholders;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 
+import androidx.core.content.ContextCompat;
+
 import co.intentservice.chatui.R;
+import co.intentservice.chatui.models.ChatMessage;
 import co.intentservice.chatui.views.MessageView;
 
 /**
@@ -58,6 +60,11 @@ public class MessageViewHolder {
     public void setSender(String sender) {
         messageView.setSender(sender);
     }
+
+    public void setStatus(ChatMessage.Status status) {
+        messageView.setSender(status.toString());
+    }
+
 
     public void setBackground(int messageType) {
 

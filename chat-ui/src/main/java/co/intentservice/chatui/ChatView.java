@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -22,12 +20,15 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+
 import java.util.ArrayList;
 
+import co.intentservice.chatui.adapters.ChatViewListAdapter;
 import co.intentservice.chatui.fab.FloatingActionsMenu;
 import co.intentservice.chatui.models.ChatMessage;
 import co.intentservice.chatui.models.ChatMessage.Type;
-import co.intentservice.chatui.adapters.ChatViewListAdapter;
 import co.intentservice.chatui.views.ViewBuilder;
 import co.intentservice.chatui.views.ViewBuilderInterface;
 
@@ -105,10 +106,10 @@ public class ChatView extends RelativeLayout {
     }
 
     private void initializeViews() {
-        chatListView = (ListView) findViewById(R.id.chat_list);
-        inputFrame = (CardView) findViewById(R.id.input_frame);
-        inputEditText = (EditText) findViewById(R.id.input_edit_text);
-        actionsMenu = (FloatingActionsMenu) findViewById(R.id.sendButton);
+        chatListView = findViewById(R.id.chat_list);
+        inputFrame = findViewById(R.id.input_frame);
+        inputEditText = findViewById(R.id.input_edit_text);
+        actionsMenu = findViewById(R.id.sendButton);
     }
 
     private void getXMLAttributes(AttributeSet attrs, int defStyleAttr) {
